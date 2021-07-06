@@ -7,12 +7,16 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def loadUserName
+      
+    end
+
     def create
         begin
             @user = User.new(user_params)
             if @user.valid?
                 if @user.save
-                    redirect_to users_path, success: "Successfully created"
+                    redirect_to users_path, success: "Successfully created loaded"
                 else
                     redirect_to new_user_path
                 end
